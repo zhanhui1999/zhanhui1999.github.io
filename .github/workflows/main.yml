@@ -31,6 +31,8 @@ jobs:
           cd hadoop-hive-image
           git pull --all
           cd ..
+          git config --global user.email "zhanhui@zju.edu.cn"
+          git config --global user.name "zhanhui1999"
           git add .
           git commit -m "submoudle update"
           git push origin main
