@@ -31,4 +31,6 @@ jobs:
           cd hadoop-hive-image
           git pull --all
           cd ..
+          git add .
+          git commit -m "submoudle update"
           git push origin main
