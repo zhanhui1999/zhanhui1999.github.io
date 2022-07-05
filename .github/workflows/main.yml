@@ -31,4 +31,6 @@ jobs:
           git config --global user.email "zhanhui@zju.edu.cn"
           git config --global user.name "zhanhui1999"
           git submodule update --remote --merge
+          git add .
+          git commit -m "submodule update"
           git push origin main
