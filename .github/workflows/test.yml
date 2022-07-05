@@ -13,9 +13,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: build
       run: |
-          pwd
-          ls
           rm -rf ./hadoop-hive-image
           git clone https://github.com/zhanhui1999/hadoop-hive-image.git
           cd ./hadoop-hive-image
           git checkout main
+          pwd
+          ls
