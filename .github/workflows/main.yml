@@ -26,10 +26,10 @@ jobs:
         run: |
           git config --global user.email "zhanhui@zju.edu.cn"
           git config --global user.name "zhanhui1999"
-          echo ${{ secrets.PERSONAL_TOKEN }}
-          git submodule update --init
-          cd hadoop-hive-image
-          git checkout main
+          git clone https://github.com/zhanhui1999/mysql_gs.git
+          cd mysql_gs
+          git checkout master
+          rm -rf .git
           cd ..
           git add .
           git commit -m "submodule update"
