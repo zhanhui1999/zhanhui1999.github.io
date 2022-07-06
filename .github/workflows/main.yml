@@ -26,7 +26,7 @@ jobs:
         run: |
           git config --global user.email "zhanhui@zju.edu.cn"
           git config --global user.name "zhanhui1999"
-          git clone https://github.com/zhanhui1999/mysql_gs.git
+          git clone https://zhanhui1999:${{ secrets.PAT_TOEKN }}@github.com/zhanhui1999/mysql_gs.git
           cd mysql_gs
           git checkout master
           rm -rf .git
