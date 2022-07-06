@@ -25,6 +25,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           git rm -rf --cached mysql_gs
+          rm -rf mysql_gs
           git submodule add https://zhanhui1999:${{ secrets.PAT_TOKEN }}@github.com/zhanhui1999/mysql_gs.git
           cd mysql_gs
           git pull --all
