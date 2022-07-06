@@ -31,3 +31,6 @@ jobs:
           git checkout master
           git pull --all
           cd ..
+          git add .
+          git commit -m "update submodule"
+          git push origin main
