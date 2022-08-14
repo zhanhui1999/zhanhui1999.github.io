@@ -49,6 +49,6 @@ jobs:
       - name: push code
         run: |
           git add .
-          git commmit -m 'update submodule'
+          git commit -m 'update submodule'
           git push
 
