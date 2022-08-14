@@ -21,17 +21,25 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip' # caching pip dependencies
+      - run: pip install -r requirements.txt
+      
+
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
           git config --global user.email "zhanhui@zju.edu.cn"
           git config --global user.name "zhanhui1999"
-          git rm -rf --cached mysql_gs
-          rm -rf mysql_gs
-          git submodule add https://zhanhui1999:${{ secrets.PAT_TOKEN }}@github.com/zhanhui1999/mysql_gs.git
-          cd mysql_gs
-          git checkout master
-          git pull --all
+          git rm -rf --cached test-auto
+          rm -rf test-auto
+          git submodule add https://github.com/zhanhui1999/test-auto.git
+          cd test-auto
+          git checkout main
+          echo "测试" >> index.html
+          echo $(pip list | grep progobuf)
           cd ..
           git add .
           git commit -m "update submodule"
