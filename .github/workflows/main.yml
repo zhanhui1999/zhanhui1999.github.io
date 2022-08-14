@@ -21,11 +21,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-          cache: 'pip' # caching pip dependencies
-      - run: pip install -r requirements.txt
       
 
       # Runs a set of commands using the runners shell
@@ -38,9 +33,22 @@ jobs:
           git submodule add https://github.com/zhanhui1999/test-auto.git
           cd test-auto
           git checkout main
-          echo "测试" >> index.html
-          echo $(pip list | grep progobuf)
           cd ..
+      
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip' # caching pip dependencies
+      - run: | 
+          cd test-auto
+          pip install -r requirements.txt
+          echo "test" >> index.html
+          echo $(pip list | grep progobuf) >> index.html
+          cd ..
+      
+      - name: push code
+        run: |
           git add .
-          git commit -m "update submodule"
-          git push origin main
+          git commmit -m 'update submodule'
+          git push
+
